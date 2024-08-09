@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+/* CORES 
+
+MORANGO #E58590
+ABACATE #B9C681
+LARANJA #DD973A
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.itim-regular {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+.item {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: var(--background);
+
+}
+
+.item.ativo {
+    display: block;
+}
+
+.item .titulo {
+    font-family: Itim, cursive;
+    font-size: 16rem;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+}
+
+.item .fruta {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+}
+
+.item .refri {
+    z-index: 3;
+    width: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#voltar, #avancar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #eee9;
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 4;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center;
+}
+
+
+#avancar {
+    right: 20px;
+}
+
+#voltar {
+    left: 20px;
+}
+
+@keyframes ativar { 
+    from {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.item.ativo img.fruta {
+    animation: ativar 0.5s ease-in-out 1;
+}
+
+.item.ativo .titulo {
+    animation: ativar 0.5s ease-in-out 1;
+}
+
+#voltar:hover, #avancar:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1) translateY(-50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
